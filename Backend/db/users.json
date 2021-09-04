@@ -438,5 +438,24 @@
       "address": "0xc46dc70e1c27c1ac604a9bd1fac2a1f1f43bf4be",
       "config": ""
     }
+  },
+  {
+    "owner": {
+      "user": {
+        "username": "NullAddress"
+      },
+      "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/1.png",
+      "address": "0x0000000000000000000000000000000000000000",
+      "config": ""
+    },
+    "sell_orders": null,
+    "creator": {
+      "user": {
+        "username": "NFTGUYTHESECOND"
+      },
+      "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/23.png",
+      "address": "0x6dbcf867990c37eb1336479807b542970536cf94",
+      "config": ""
+    }
   }
 ]
