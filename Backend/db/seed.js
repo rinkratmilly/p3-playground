@@ -1,30 +1,31 @@
 const assetsData = require('./assets.json')
 const collectionsData = require('./collections.json')
-const contractssData = require('./contracts.json')
+const contractsData = require('./contracts.json')
 const usersData = require('./users.json')
 //--------------------------------------------------------------------------------------------------
 const NFT = require('../models/nft')
-const Collection = require('../models/collection')
+const Collect = require('../models/collections')
 const User = require('../models/user')
 const Contract = require('../models/contract')
 //---------------------------------------------------------------------------------------------------
 
-const nftData = assetsData.map(item =>(item.id && item.tokenid && item.background_color && item.image_url && image_preview_url && item.image_original_url && item.animation_url && item.animation_original_url && item.name && item.description && item.external_link && item.permalink ) ? {assetid:item.id, cryptoid:item.tokenid, display_background:item.background_color, main_image:item.image_url, mainimg_backup:item.image_preview_url, smallmain_img: item.image_original_url,animation_original_url: item.animation_original_url, asset_name: item.name, asset_description: item.description, external_link: item.external_link, opensea_link: item.permalink} : null )
+// const nftData = assetsData.map(item =>(item.id && item.tokenid && item.background_color && item.image_url && image_preview_url && item.image_original_url && item.animation_url && item.animation_original_url && item.name && item.description && item.external_link && item.permalink ) ? {nftid:item.id, cryptoid:item.tokenid, display_background:item.background_color, main_image:item.image_url, mainimg_backup:item.image_preview_url, smallmain_img: item.image_original_url, animation_url: item.animation_url, animation_original_url: item.animation_original_url, nft_name: item.name, nft_description: item.description, external_link: item.external_link, opensea_link: item.permalink} : null )
 
 
 
-NFT.deleteMany({})
-    .then(() => NFT.insertMany(nftData))
-    .then(console.log)
-    .catch(console.error)
+// NFT.deleteMany({})
+//     .then(() => NFT.insertMany(assetsData))
+//     .then(console.log)
+//     .catch(console.error)
+//     .finally(() => process.exit())
 
 
 
-Collection.deleteMany({})
-    .then(() => Collection.insertMany(collectionsData))
-    .then(console.log)
-    .catch(console.error)
-    .finally(() => process.exit())
+// Collect.deleteMany({})
+//     .then(() => Collect.insertMany(collectionsData))
+//     .then(console.log)
+//     .catch(console.error)
+//     .finally(() => process.exit())
 
 
 // User.deleteMany({})
