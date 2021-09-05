@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+</head>
+<body> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">NFT Marketplace</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Marketplace
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><hr class="dropdown-divider"><strong>Nifty Market</strong></li>
+            <li><a class="dropdown-item" href="#">View All Nifty's</a></li>
+            <li><a class="dropdown-item" href="#">Create A NFT</a></li>
+            <li><a class="dropdown-item" href="#">Contracts</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://opensea.io/">OpenSea</a>
+        </li>
+      </ul>
+      <form class="d-flex ml-auto">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    
+    <div class="gifs">
+    </div>
+  
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Create a New NFT Asset!</h4>
+            <div class="row">
+                <div class="input-field">
+                    <input id="name" type="text" class="validate">
+                    <label for="name"></label>
+                </div>
+                <div class="input-field">
+                    <input id="url" type="text" class="validate">
+                    <label for="url">URL</label>
+                </div>
+                <button class="btn grey center-align" id="submit">Submit</button>
+            </div>
+      </div>
+    </div>
+    
+    <div id="modal-edit" class="modal">
+        <div class="modal-content">
+            <h4>Create a New Gif!</h4>
+            <div class="row">
+                <div class="input-field">
+                    <input id="name-edit" type="text" class="validate">
+                    <label for="name-edit">Name</label>
+                </div>
+                <div class="input-field">
+                    <input id="url-edit" type="text" class="validate">
+                    <label for="url-edit">URL</label>
+                </div>
+                <button class="btn grey center-align" id="submit-edit">Submit</button>
+                <button class="btn red center-align" id="delete">Delete</button>
+            </div>
+        </div>
+    </div>
+    <h1 class="display-1 text-center">Welcome To NFT Marketplace</h1>
+    <div class="row">
+        <div class="col"></div>
+    <p class="col-8 display-6">
+   This is a graphical "NFT Asset Database" to help users get acquainted with the Non-Fungible Token digital art market.
+   Hope all users enjoy and check out our client-side web application:<strong>nftmarketplace.com</strong> 
+    </p>
+    <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="d-grid gap-2">
+        <button type="button" class="btn btn-primary btn-lg">View All NFT Assets</button>
+        <button type="button" class="btn btn-success btn-lg">Create New NFT Asset</button>
+        <button type="button" class="btn btn-warning btn-lg">Contracts</button>
+        </div>
+    </div>
+  
+    {{#each nfts}}
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+  <div class="carousel-inner">
+    <div class="carousel-item">
+      <img src="{{this.image_url}}" class="d-block w-100" alt="No Image">
+            <div class="carousel-caption d-none d-md-block">
+            <div> Asset #{{i}}: {{this.name}} </div>
+    <div> Check Out On OpenSea: 
+    <a href=" {{this.permalink}}" target="_blank" rel="noopener noreferrer">{{this.name}} </a>
+    </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{{/each}}
+
+</body>
+</html>

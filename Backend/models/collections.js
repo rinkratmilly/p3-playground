@@ -2,9 +2,8 @@ const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
 
-const  CollectionSchema = new Schema({
+const  CollectSchema = new Schema({
 
-collection: {
     created_date: String,
     description: String,
     featured_image_url: String,
@@ -14,10 +13,8 @@ collection: {
     twitter_username: String,
     instagram_username: String,
     slug:String
-}
-
 })
 
-const Collection = mongoose.model("Collection", CollectionSchema)
+const Collect = mongoose.model("Collect", CollectSchema)
 
-module.exports = Collection
+module.exports = Collect

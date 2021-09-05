@@ -3,18 +3,19 @@ const Schema = mongoose.Schema;
 
 
 const  NFTSchema = new Schema({
-assetid: Number,
-cryptoid: String,
-display_background: String,
-main_image: String,
-mainimg_backup: String,
-smallmain_img: String,
-animation_url: String,
-animation_original_url: String,
-asset_name: String,
-asset_description: String,
-external_link: String,
-opensea_link: String,
+    id: Number,
+    token_id: String,
+    background_color: String,
+    image_url: String,
+    image_preview_url: String,
+    image_thumbnail_url: String,
+    image_original_url: String,
+    animation_url: String,
+    animation_original_url: String,
+    name: String,
+    description: String,
+    external_link: String,
+    permalink:String
 })
 
 
