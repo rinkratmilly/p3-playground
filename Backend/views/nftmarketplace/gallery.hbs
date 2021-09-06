@@ -1,14 +1,12 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>NFT Marketplace</title>
-</head>
-<body> 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFT Gallery</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/nftmarketplace">NFT Marketplace</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +25,7 @@
               
             <li><a class="dropdown-item" href="#">About Us</a></li>
             <li><hr class="dropdown-divider"><strong>Nifty Market</strong></li>
-            <li><a class="dropdown-item" href="/nftmarketplace/gallery">View All Nifty's</a></li>
+            <li><a class="dropdown-item" href="#">View All Nifty's</a></li>
             <li><a class="dropdown-item" href="#">Create A NFT</a></li>
             <li><a class="dropdown-item" href="#">Contracts</a></li>
           </ul>
@@ -43,28 +41,22 @@
     </div>
   </div>
 </nav>
-    
- 
-  
-    
-    </div>
-    <h1 class="display-1 text-center">Welcome To NFT Marketplace</h1>
-    <div class="row">
-        <div class="col"></div>
-    <p class="col-8 display-6">
-   This is a graphical "NFT Asset Database" to help users get acquainted with the Non-Fungible Token digital art market.
-   Hope all users enjoy and check out our client-side web application:<strong>nftmarketplace.com</strong> 
-    </p>
-    <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-primary btn-lg"><a href="/nftmarketplace/gallery" class="link-light text-decoration-none ">View All NFT Assets</a></button>
-        <button type="button" class="btn btn-success btn-lg">Create New NFT Asset</button>
-        <button type="button" class="btn btn-warning btn-lg">Contracts</button>
+    <h1 class="display-1 text-center">NFT Asset Gallery</h1>
+    {{#each nfts}}
+    <div class="row pt-5">
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <img src={{this.image_url}} class="card-img-top" alt="No Image" />
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+              <div class="row">
+            <a href="/nftmarketplace/{{this.id}}" class="btn btn-primary">View This NFT</a>
+            <a href={{this.permalink}}  class="btn btn-warning">View On Opensea</a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-  
-
-</body>
+    {{/each}}
+  </body>
 </html>
