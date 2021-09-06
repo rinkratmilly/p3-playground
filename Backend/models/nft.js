@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 
 const  NFTSchema = new Schema({
-    id: Number,
     token_id: String,
     background_color: String,
     image_url: String,
