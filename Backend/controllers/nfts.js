@@ -27,9 +27,27 @@ router.get("/gallery", (req, res) => {
 })
 //----------------------------------------------------------
 
-//-----------------------------------------------------------
+//Create Route JSON
+router.get("/new", (req, res) => {
 
-// Create Route ---------------------------
+    NFT.find({})
+   .then(nfts => res.json(nfts))
+   .catch(console.error);
+
+   
+})
+router.post('/new', (req, res) => {
+    
+    console.log(req.body)
+
+    NFT.create(req.body)
+        .then(nfts => {
+            res.redirect('/nftmarketplace/gallery')
+        })
+        .catch(console.error)
+    })
+
+// Create Route Views---------------------------
 router.get('/new', (req, res) => {
     // No Database action here
     res.render('./nftmarketplace/new') //no info passing in here
@@ -44,6 +62,74 @@ router.post('/', (req, res) => {
             res.redirect('./nftmarketplace/gallery')
         })
         .catch(console.error)
+})
+
+//Edit NFT
+//------------------------------------------------------------------------
+
+router.get('/:id/nftedit', (req, res) => {
+
+    const id = req.params.id
+    Person.findById(id)
+        .then( people => {
+            res.json(people)
+        })
+        .catch(console.error)
+} )
+
+router.patch('/:id/personedit' ,(req, res) => {
+    // res.send(`you made it to a PUT on id: ${req.params.id}`)
+    const id = req.params.id
+    Person.findOneAndUpdate(
+        {_id: id},
+        {
+            title: req.body.title,
+            complete: req.body.complete === 'on'
+        },
+        {new: true}
+    )
+        .then( people => {
+            res.json(people)
+        })
+        .catch(console.error)
+        })
+
+//---------------------------------------------------------------------------------
+// //Delete NFT  Routes
+
+router.delete('/:id', (req, res) => {
+    Person.findByIdAndRemove({_id: req.params.id})
+        .then( () => {
+            res.redirect('/people')
+        })
+        .catch(console.error)
+})
+
+//Show Routes
+//--------------------------------------------------------------
+router.get('/:id/collection', (req, res) => {
+    
+    console.log(`params ID: ${req.params.id}`)
+    NFT.findById(req.params.id)
+        .then( nfts => {
+            res.render('./nftmarketplace/collection', nfts)
+        })
+        .catch(oopsie => {
+            console.error("oops")
+            res.send("something has gone terribly wrong!")
+        })
+})
+router.get('/:id/contract', (req, res) => {
+    
+    console.log(`params ID: ${req.params.id}`)
+    NFT.findById(req.params.id)
+        .then( nfts => {
+            res.render('./nftmarketplace/contract', nfts)
+        })
+        .catch(oopsie => {
+            console.error("oops")
+            res.send("something has gone terribly wrong!")
+        })
 })
 router.get('/:id', (req, res) => {
     
