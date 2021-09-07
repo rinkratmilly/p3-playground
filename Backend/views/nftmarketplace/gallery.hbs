@@ -42,9 +42,9 @@
   </div>
 </nav>
     <h1 class="display-1 text-center">NFT Asset Gallery</h1>
+      <div class="row pt-5">
+      <div class="col">
     {{#each nfts}}
-    <div class="row pt-5">
-      <div class="col-4">
         <div class="card" style="width: 18rem;">
           <img src={{this.image_url}} class="card-img-top" alt="No Image" />
           <div class="card-body">
@@ -55,8 +55,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
     {{/each}}
+     </div>
+    </div>
   </body>
 </html>
